@@ -29,7 +29,7 @@ public class UserEndPoints {
 		return response;
 	}
 	
-	public static Response createUser(String userName, User payload){
+	public static Response updateUser(String userName, User payload){
 		Response response = given()
 				.contentType(ContentType.JSON)
 				.accept(ContentType.JSON)
