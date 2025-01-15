@@ -30,6 +30,20 @@ public class PetTests {
 		Assert.assertEquals(response.getStatusCode(), 200);
 		
 	}
+	@Test(priority=3)
+	public void testUpdateUserByName()
+	{
+		petPayload.setPetname(faker.name().firstName());
+		Response response = PetEndPoints.updatePet(this.petPayload.getPetname(), petPayload);
+		response.then().log().all();
+		Assert.assertEquals(response.getStatusCode(), 200);
+		
+		//check data afer update
+		Response responseAfterupdate = PetEndPoints.getPet(this.petPayload.getPetname());
+		Assert.assertEquals(responseAfterupdate.getStatusCode(), 200);
+		
+		
+	}
 	
 
 }

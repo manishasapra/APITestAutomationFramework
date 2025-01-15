@@ -27,5 +27,26 @@ public class PetEndPoints {
 		
 		return response;
 	}
+	public static Response updatePet(String userName, Pet payload){
+		Response response = given()
+				.contentType(ContentType.JSON)
+				.accept(ContentType.JSON)
+				.pathParam("username", userName)
+				.body(payload)
+		.when()
+		.put(Routes.updatepet_url);
+		
+		
+		return response;
+	}
+	public static Response getPet(String petname) {
+		Response response = given()
+				.pathParam("dogname", petname)
+		.when()
+		.get(Routes.get_url);
+		
+		
+		return response;
+	}
 
 }
