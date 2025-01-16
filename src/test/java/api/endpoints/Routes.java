@@ -18,11 +18,16 @@ public class Routes {
  public static String delete_url = "base_url" + "/user/{username}";
  
  
- 
  //pet module
  public static String addpet_url = "base_url" + "/pet";
  public static String updatepet_url = "base_url" + "/pet/{petname}";
  public static String deletepet_url = "base_url" + "/pet/{petid}";
+ 
+ //set module
+ public static String getstore_url = "base_url" + "/store/inventory";
+ public static String postorder_url = "base_url" + "/store/order";
+ public static String deletestore_url = "base_url" + "/store/order/{orderid}";
+ public static String getorder_url = "base_url" + "/store/order/{orderid}";
  
  
  
