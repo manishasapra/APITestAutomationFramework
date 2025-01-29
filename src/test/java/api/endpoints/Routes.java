@@ -23,7 +23,7 @@ public class Routes {
  public static String updatepet_url = "base_url" + "/pet/{petname}";
  public static String deletepet_url = "base_url" + "/pet/{petid}";
  
- //set module
+ //store module
  public static String getstore_url = "base_url" + "/store/inventory";
  public static String postorder_url = "base_url" + "/store/order";
  public static String deletestore_url = "base_url" + "/store/order/{orderid}";

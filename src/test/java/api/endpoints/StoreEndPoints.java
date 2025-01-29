@@ -37,5 +37,14 @@ public class StoreEndPoints {
 		
 		return response;
 	}
+	public static Response getInventory() {
+		Response response = given()
+		.when()
+		.get(Routes.getstore_url);
+		
+		
+		return response;
+	}
+	
 
 }
