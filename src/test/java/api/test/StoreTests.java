@@ -7,7 +7,6 @@ import org.testng.annotations.Test;
 import com.github.javafaker.Faker;
 
 import api.endpoints.StoreEndPoints;
-import api.endpoints.UserEndPoints;
 import api.payload.Store;
 import io.restassured.response.Response;
 
@@ -23,6 +22,8 @@ public class StoreTests {
 		faker = new Faker();
 		storePayload = new Store();
 		storePayload.setId(faker.idNumber().hashCode());
+		storePayload.setQuantity(faker.idNumber().hashCode());
+		storePayload.setShipDate(faker.date().toString());
 		
 		
 	
@@ -35,11 +36,20 @@ public class StoreTests {
 		Assert.assertEquals(response.getStatusCode(), 200);
 		
 	}
+	@Test(priority=3)
+	public void testGetInventory()
+	{
+		Response response = StoreEndPoints.getInventory();
+		response.then().log().all();
+		Assert.assertEquals(response.getStatusCode(), 200);
+		
+	}
 	@Test(priority=4)
 	public void testDeleteByOrderId()
 	{
 		Response response = StoreEndPoints.deleteOrder(this.storePayload.getId());
 		Assert.assertEquals(response.getStatusCode(), 200);
 	}
+	
 
 }
