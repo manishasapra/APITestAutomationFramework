@@ -28,12 +28,27 @@ public class StoreTests {
 		
 	
 		}
-	@Test(priority=2)
+	@Test(priority=1)
 	public void testGetOrder()
 	{
 		Response response = StoreEndPoints.getOrder(this.storePayload.getId());
 		response.then().log().all();
 		Assert.assertEquals(response.getStatusCode(), 200);
+		
+	}
+	@Test(priority=2)
+	public void testUpdateOrder()
+	{
+		storePayload.setId(faker.idNumber().hashCode());
+		storePayload.setQuantity(faker.idNumber().hashCode());
+		Response response = StoreEndPoints.postOrder(storePayload);
+		response.then().log().all();
+		Assert.assertEquals(response.getStatusCode(), 200);
+		
+		//check data afer update
+		Response responseAfterupdate = StoreEndPoints.getOrder(this.storePayload.getId());
+		Assert.assertEquals(responseAfterupdate.getStatusCode(), 200);
+		
 		
 	}
 	@Test(priority=3)
