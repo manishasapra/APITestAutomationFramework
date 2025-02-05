@@ -41,6 +41,7 @@ public class StoreTests {
 	{
 		storePayload.setId(faker.idNumber().hashCode());
 		storePayload.setQuantity(faker.idNumber().hashCode());
+		storePayload.setShipDate(faker.date().toString());
 		Response response = StoreEndPoints.postOrder(storePayload);
 		response.then().log().all();
 		Assert.assertEquals(response.getStatusCode(), 200);
