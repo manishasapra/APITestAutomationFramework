@@ -1,5 +1,8 @@
 package api.test;
 
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.AssertJUnit;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -27,7 +30,7 @@ public class PetTests {
 	{
 		Response response = PetEndPoints.addPet(petPayload);
 		response.then().log().all();
-		Assert.assertEquals(response.getStatusCode(), 200);
+		AssertJUnit.assertEquals(response.getStatusCode(), 200);
 		
 	}
 	@Test(priority=3)
@@ -36,11 +39,11 @@ public class PetTests {
 		petPayload.setPetname(faker.name().firstName());
 		Response response = PetEndPoints.updatePet(this.petPayload.getPetname(), petPayload);
 		response.then().log().all();
-		Assert.assertEquals(response.getStatusCode(), 200);
+		AssertJUnit.assertEquals(response.getStatusCode(), 200);
 		
 		//check data afer update
 		Response responseAfterupdate = PetEndPoints.getPet(this.petPayload.getPetname());
-		Assert.assertEquals(responseAfterupdate.getStatusCode(), 200);
+		AssertJUnit.assertEquals(responseAfterupdate.getStatusCode(), 200);
 		
 		
 	}

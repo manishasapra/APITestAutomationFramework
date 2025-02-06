@@ -1,8 +1,8 @@
 package api.test;
 
-import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.AssertJUnit;
 
 import com.github.javafaker.Faker;
 
@@ -33,7 +33,7 @@ public class StoreTests {
 	{
 		Response response = StoreEndPoints.getOrder(this.storePayload.getId());
 		response.then().log().all();
-		Assert.assertEquals(response.getStatusCode(), 200);
+		AssertJUnit.assertEquals(response.getStatusCode(), 200);
 		
 	}
 	@Test(priority=2)
@@ -44,11 +44,11 @@ public class StoreTests {
 		storePayload.setShipDate(faker.date().toString());
 		Response response = StoreEndPoints.postOrder(storePayload);
 		response.then().log().all();
-		Assert.assertEquals(response.getStatusCode(), 200);
+		AssertJUnit.assertEquals(response.getStatusCode(), 200);
 		
 		//check data afer update
 		Response responseAfterupdate = StoreEndPoints.getOrder(this.storePayload.getId());
-		Assert.assertEquals(responseAfterupdate.getStatusCode(), 200);
+		AssertJUnit.assertEquals(responseAfterupdate.getStatusCode(), 200);
 		
 		
 	}
@@ -57,14 +57,14 @@ public class StoreTests {
 	{
 		Response response = StoreEndPoints.getInventory();
 		response.then().log().all();
-		Assert.assertEquals(response.getStatusCode(), 200);
+		AssertJUnit.assertEquals(response.getStatusCode(), 200);
 		
 	}
 	@Test(priority=4)
 	public void testDeleteByOrderId()
 	{
 		Response response = StoreEndPoints.deleteOrder(this.storePayload.getId());
-		Assert.assertEquals(response.getStatusCode(), 200);
+		AssertJUnit.assertEquals(response.getStatusCode(), 200);
 	}
 	
 
