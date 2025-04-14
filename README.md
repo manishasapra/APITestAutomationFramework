@@ -5,6 +5,7 @@ This is an API Automation Framework built using **RestAssured, Java, TestNG, and
 The framework is designed to automate API testing for public APIs (e.g., ReqRes) and supports various HTTP methods like **GET, POST, PUT, DELETE**. 
 
 ## 🔹 Tech Stack
+- **Page Object Model (POM)** - Design pattern for organizing tests
 - **Java** - Programming language
 - **RestAssured** - API testing library
 - **TestNG** - Test execution framework
@@ -16,6 +17,7 @@ The framework is designed to automate API testing for public APIs (e.g., ReqRes)
 - ✅ Covers **GET, POST, PUT, DELETE** requests
 - ✅ Uses **TestNG** for parallel execution
 - ✅ Logs test execution details using **SLF4J**
+- ✅ Implements Page Object Model (POM) for better test maintainability
 
 
 
